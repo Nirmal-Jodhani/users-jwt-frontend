@@ -1,0 +1,28 @@
+<div>
+    <h1>Login Form</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div>
+            <label for="username" class="w-10">Username</label> &nbsp;
+            <input type="text" formControlName="username" />
+            <div *ngIf="formControl.username.invalid && (formControl.usernamerty || formControl.username.touched)"
+                class="error">
+                <div *ngIf="formControl.username.errors.required" style="display: inline-block;">Username is required
+                </div>
+            </div>
+        </div>
+        <div>
+            <label for="password" class="w-10">Password</label> &nbsp;
+            <input type="password" formControlName="password" />
+            <div *ngIf="formControl.password.invalid && (formControl.password.dirty || formControl.password.touched)"
+                class="error">
+                <div *ngIf="formControl.password.errors.required" style="display: inline-block;">Password is required
+                </div>
+            </div>
+        </div>
+        <button type="submit">
+            Login
+        </button>
+        &nbsp;&nbsp;
+        <span>Didn't account? <button routerLink='/register'>Register</button></span>
+    </form>
+</div>

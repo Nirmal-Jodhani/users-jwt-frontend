@@ -1,0 +1,101 @@
+<div>
+    <h1>Register New User</h1>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <table>
+            <tr>
+                <td>
+                    First name
+                </td>
+                <td>
+                    <input type="text" formControlName="firstName">
+                    <div *ngIf="registerFormControl.firstName.invalid && (registerFormControl.firstName.dirty || registerFormControl.firstName.touched)"
+                        class="error">
+                        <ng-container *ngIf="registerFormControl.firstName.errors.required">
+                            First name is required.
+                        </ng-container>
+                    </div>
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                    Last name
+                </td>
+                <td>
+                    <input type="text" formControlName="lastName">
+                    <div *ngIf="registerFormControl.lastName.invalid && (registerFormControl.lastName.dirty || registerFormControl.lastName.touched)"
+                        class="error">
+                        <ng-container *ngIf="registerFormControl.lastName.errors.required">
+                            Last name is required.
+                        </ng-container>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    User name
+                </td>
+                <td>
+                    <input type="text" formControlName="username">
+                    <div *ngIf="registerFormControl.username.invalid && (registerFormControl.username.dirty || registerFormControl.username.touched)"
+                        class="error">
+                        <ng-container *ngIf="registerFormControl.username.errors.required">
+                            User name is required.
+                        </ng-container>
+                    </div>
+                </td>
+            </tr>
+            <tr *ngIf="!(registerForm.get('id').value)">
+                <td>
+                    Password
+                </td>
+                <td>
+                    <input type="password" formControlName="password">
+                    <div *ngIf="registerFormControl.password.invalid && (registerFormControl.password.dirty || registerFormControl.password.touched)"
+                        class="error">
+                        <ng-container *ngIf="registerFormControl.password.errors.required">
+                            Password is required.
+                        </ng-container>
+                    </div>
+                </td>
+            </tr>
+            <!-- <tr *ngIf="!(registerForm.get('id').value)">
+                <td>
+                   Confirm Password
+                </td>
+                <td>
+                    <input type="password" formControlName="confirmPassword">
+                    <div *ngIf="registerFormControl.confirmPassword.invalid && (registerFormControl.confirmPassword.dirty || registerFormControl.confirmPassword.touched)"
+                        class="error">
+                        <ng-container *ngIf="registerFormControl.confirmPassword.errors.required">
+                            Password is required.
+                        </ng-container>
+                        <ng-container *ngIf="registerFormControl.confirmPassword.errors.mustMatch">
+                            Confirm password same as password.
+                        </ng-container>
+                    </div>
+                </td>
+            </tr> -->
+            <tr>
+                <td>
+                    User Role
+                </td>
+                <td>
+                    <select formControlName="role">
+                        <option>Admin</option>
+                        <option>User</option>
+                    </select>
+                    <div *ngIf="registerFormControl.role.invalid && (registerFormControl.role.dirty || registerFormControl.role.touched)"
+                        class="error">
+                        <ng-container *ngIf="registerFormControl.role.errors.required">
+                            Role is required.
+                        </ng-container>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <button type="submit">Save</button>
+    </form>
+</div>
