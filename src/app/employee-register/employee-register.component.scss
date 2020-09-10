@@ -1,0 +1,33 @@
+::ng-deep .mat-horizontal-stepper-header-container {
+    display: none !important;
+  }
+
+  .stepper-boxshadow {
+    border-radius: 3px;
+    box-shadow: 0 4px 4px rgba(87,100,126,.21);
+    background-color: #fff;
+    max-width: 40.625rem;
+    margin: 3.125rem auto;
+  }
+
+  input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+  // border: 1px solid #ccc;
+  display: inline-block;
+  padding: .625rem auto;
+  cursor: pointer;
+}
+
+.upload-photo {
+  border: 1px dotted black;
+  text-align: center;
+  background-color: #c9d8fe;
+}
+
+.header-font {
+  font-weight: 500;
+  font-size: 16px;
+}

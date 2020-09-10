@@ -1,0 +1,435 @@
+<div class="stepper-boxshadow">
+    <!-- <div class="header">Employee Information Form</div> -->
+    <mat-horizontal-stepper linear>
+        <mat-step [stepControl]="personalInformationForm">
+            <ng-template matStepLabel>Personal Information</ng-template>
+            <form [formGroup]="personalInformationForm">
+                <div class="header">Personal Information</div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-12"><label class="header-font">Name</label></div>
+                    <div class="col-sm-6">
+                        <div> <label for="firstName">First Name</label> </div>
+                        <div> <input class="input-text" type="text" formControlName="firstName"></div>
+                        <div *ngIf="personalInformaionControl.firstName.invalid && (personalInformaionControl.firstName.dirty || personalInformaionControl.firstName.touched)"
+                            class="error">
+                            <ng-container *ngIf="personalInformaionControl.firstName.errors.required">
+                                First name is required.
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div> <label for="lastName">Last Name</label> </div>
+                        <div> <input class="input-text" type="text" formControlName="lastName"></div>
+                        <div *ngIf="personalInformaionControl.lastName.invalid && (personalInformaionControl.lastName.dirty || personalInformaionControl.lastName.touched)"
+                            class="error">
+                            <ng-container *ngIf="personalInformaionControl.lastName.errors.required">
+                                Last name is required.
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="div-space"></div>
+
+                <div class="row">
+                    <div class="col-sm-12"><label class="header-font">Addres</label></div>
+                    <div class="col-sm-12">
+                        <div> <label for="streetAddressline1">Street Address</label> </div>
+                        <div> <input class="input-text" type="text" formControlName="streetAddressline1"></div>
+                        <div *ngIf="personalInformaionControl.streetAddressline1.invalid && (personalInformaionControl.streetAddressline1.dirty || personalInformaionControl.streetAddressline1.touched)"
+                            class="error">
+                            <ng-container *ngIf="personalInformaionControl.streetAddressline1.errors.required">
+                                Street Address is required.
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div> <label for="streetAddressline2">Street Address Line 2</label> </div>
+                        <div> <input class="input-text" type="text" formControlName="streetAddressline2"></div>
+                        <!-- <div *ngIf="personalInformaionControl.streetAddressline2.invalid && (personalInformaionControl.streetAddressline2.dirty || personalInformaionControl.streetAddressline2.touched)"
+                            class="error">
+                            <ng-container *ngIf="personalInformaionControl.streetAddressline2.errors.required">
+                                Last name is required.
+                            </ng-container>
+                        </div> -->
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div> <label for="city">City</label> </div>
+                        <div> <input class="input-text" type="text" formControlName="city"></div>
+                        <div *ngIf="personalInformaionControl.city.invalid && (personalInformaionControl.city.dirty || personalInformaionControl.city.touched)"
+                            class="error">
+                            <ng-container *ngIf="personalInformaionControl.city.errors.required">
+                                City is required.
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div> <label for="state">State</label> </div>
+                        <div> <input class="input-text" type="text" formControlName="state"></div>
+                        <div *ngIf="personalInformaionControl.state.invalid && (personalInformaionControl.state.dirty || personalInformaionControl.state.touched)"
+                            class="error">
+                            <ng-container *ngIf="personalInformaionControl.state.errors.required">
+                                State is required.
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div> <label for="postalCode">Postal/zip code</label> </div>
+                        <div> <input class="input-text" type="text" formControlName="postalCode"></div>
+                        <div *ngIf="personalInformaionControl.postalCode.invalid && (personalInformaionControl.postalCode.dirty || personalInformaionControl.postalCode.touched)"
+                            class="error">
+                            <ng-container *ngIf="personalInformaionControl.postalCode.errors.required">
+                                Postal code is required.
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="div-space"></div>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div> <label for="phoneNumber" class="header-font">Phone number</label> </div>
+                        <div> <input class="input-text" type="text" formControlName="phoneNumber"></div>
+                        <div *ngIf="personalInformaionControl.phoneNumber.invalid && (personalInformaionControl.phoneNumber.dirty || personalInformaionControl.phoneNumber.touched)"
+                            class="error">
+                            <ng-container *ngIf="personalInformaionControl.phoneNumber.errors.required">
+                                Phone number is required.
+                            </ng-container>
+                            <ng-container *ngIf="personalInformaionControl.phoneNumber.errors.pattern">
+                                Phone number is not valid(Must be 10 digit).
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div> <label for="homePhoneNumber" class="header-font">Home Phone number</label> </div>
+                        <div> <input class="input-text" type="text" formControlName="homePhoneNumber"></div>
+                        <div *ngIf="personalInformaionControl.homePhoneNumber.invalid && (personalInformaionControl.homePhoneNumber.dirty || personalInformaionControl.homePhoneNumber.touched)"
+                            class="error">
+                            <ng-container *ngIf="personalInformaionControl.homePhoneNumber.errors.required">
+                                Home phone number is required.
+                            </ng-container>
+                            <ng-container *ngIf="personalInformaionControl.homePhoneNumber.errors.pattern">
+                                Home Phone number is not valid(Must be 10 digit).
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="div-space"></div>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div> <label for="email" class="header-font">Email</label> </div>
+                        <div> <input class="input-text" type="text" formControlName="email"></div>
+                        <div *ngIf="personalInformaionControl.email.invalid && (personalInformaionControl.email.dirty || personalInformaionControl.email.touched)"
+                            class="error">
+                            <ng-container *ngIf="personalInformaionControl.email.errors.required">
+                                Email is required.
+                            </ng-container>
+                            <ng-container *ngIf="personalInformaionControl.email.errors.pattern">
+                                Email is not valid.
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div> <label for="birthDate" class="header-font">Birth date</label> </div>
+                        <div> <input class="input-text" type="date" formControlName="birthDate"
+                                (change)="checkBirthDayValidation($event)"></div>
+                        <div *ngIf="personalInformaionControl.birthDate.invalid && (personalInformaionControl.birthDate.dirty || personalInformaionControl.birthDate.touched)"
+                            class="error">
+                            <ng-container *ngIf="personalInformaionControl.birthDate.errors.required">
+                                Birth date is required.
+                            </ng-container>
+
+                            <ng-container *ngIf="personalInformaionControl.birthDate.errors.birthday">
+                                Birth date is not less then 18 years.
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="div-space"></div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div><label class="header-font">Please upload your photo</label></div>
+                        <!-- <div> <label for="uploadFile" id="uploadFile">Please upload your photo</label>
+                            <input class="input-text" type="file" formControlName="uploadFile"
+                                (change)="uploadFile($event)" multiple />
+                        </div> -->
+                        <div class="upload-photo">
+                            <label for="file-upload" class="custom-file-upload input-text m-top-10">
+                                Upload Photo
+                            </label>
+                            <div>
+                                <input id="file-upload" type="file" (change)="uploadFile($event)" multiple
+                                    formControlName="uploadFile" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div *ngFor="let file of uploadedFileList; let index=index" class="row m-top-10">
+                        <div class="col-sm-10"> {{file.name}}</div>
+                        <div class="col-sm-2">
+                            <button mat-fab color="warn" (click)="removeFile(index)">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="div-space"></div>
+                <hr>
+                <div class="div-space"></div>
+
+                <div>
+                    <button mat-flat-button color="primary" matStepperNext (click)="personalDetailNext()">Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="jobInformationForm">
+            <ng-template matStepLabel>Job Information</ng-template>
+            <form [formGroup]="jobInformationForm">
+                <div class="header">Job Information</div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div> <label for="title" class="header-font">Title</label> </div>
+                        <div> <input class="input-text" type="text" formControlName="title"></div>
+                        <div *ngIf="jobInformationFormControl.title.invalid && (jobInformationFormControl.title.dirty || jobInformationFormControl.title.touched)"
+                            class="error">
+                            <ng-container *ngIf="jobInformationFormControl.title.errors.required">
+                                Title is required.
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="div-space"></div>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div> <label for="department" class="header-font">Department</label> </div>
+                        <div>
+                            <select formControlName="department" class="input-text">
+                                <option *ngFor='let dep of departments'>{{dep}}</option>
+                            </select>
+                        </div>
+                        <div *ngIf="jobInformationFormControl.department.invalid && (jobInformationFormControl.department.dirty || jobInformationFormControl.department.touched)"
+                            class="error">
+                            <ng-container *ngIf="jobInformationFormControl.department.errors.required">
+                                Department is required.
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="div-space"></div>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div> <label for="workingType" class="header-font">Working Type</label> </div>
+                        <div> <select formControlName="workingType" class="input-text">
+                                <option *ngFor='let type of workingTypes'>{{type}}</option>
+                            </select>
+                        </div>
+                        <div *ngIf="jobInformationFormControl.workingType.invalid && (jobInformationFormControl.workingType.dirty || jobInformationFormControl.workingType.touched)"
+                            class="error">
+                            <ng-container *ngIf="jobInformationFormControl.workingType.errors.required">
+                                Working type is required.
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="div-space"></div>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div> <label for="startDate" class="header-font">Start Date</label> </div>
+                        <div> <input class="input-text" type="date" formControlName="startDate"></div>
+                        <div *ngIf="jobInformationFormControl.startDate.invalid && (jobInformationFormControl.startDate.dirty || jobInformationFormControl.startDate.touched)"
+                            class="error">
+                            <ng-container *ngIf="jobInformationFormControl.startDate.errors.required">
+                                Start Date is required.
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="div-space"></div>
+                <hr>
+                <div class="div-space"></div>
+                <div>
+                    <button mat-raised-button mat-button matStepperPrevious>Back</button>
+                    <button mat-flat-button color="primary" class="float-right" mat-button matStepperNext
+                        (click)="jobInformationNext()">Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="emergencyContactForm">
+            <ng-template matStepLabel>Emergency Contact Information</ng-template>
+            <form [formGroup]="emergencyContactForm">
+                <div class="header">Emergency Contact Information</div>
+
+                <hr>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label class="header-font">Primary Emergency | Contact Name</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <div> <label for="priContFirstName">First Name</label> </div>
+                        <div> <input class="input-text" type="text" formControlName="priContFirstName"></div>
+                        <div *ngIf="emergencyContactFormControl.priContFirstName.invalid && (emergencyContactFormControl.priContFirstName.dirty || emergencyContactFormControl.priContFirstName.touched)"
+                            class="error">
+                            <ng-container *ngIf="emergencyContactFormControl.priContFirstName.errors.required">
+                                First name is required.
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div> <label for="priContLastName">Last Name</label> </div>
+                        <div> <input class="input-text" type="text" formControlName="priContLastName"></div>
+                        <div *ngIf="emergencyContactFormControl.priContLastName.invalid && (emergencyContactFormControl.priContLastName.dirty || emergencyContactFormControl.priContLastName.touched)"
+                            class="error">
+                            <ng-container *ngIf="emergencyContactFormControl.priContLastName.errors.required">
+                                Last Name is required.
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="div-space"></div>
+                <div class="div-space"></div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label class="header-font">Primary Emergency | Phone Number</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <div> <input class="input-text" type="text" formControlName="priContPhoneNumber"></div>
+                        <div *ngIf="emergencyContactFormControl.priContPhoneNumber.invalid && (emergencyContactFormControl.priContPhoneNumber.dirty || emergencyContactFormControl.priContPhoneNumber.touched)"
+                            class="error">
+                            <ng-container *ngIf="emergencyContactFormControl.priContPhoneNumber.errors.required">
+                                Phone number is required.
+                            </ng-container>
+                            <ng-container *ngIf="emergencyContactFormControl.priContPhoneNumber.errors.pattern">
+                                Phone number is not valid(must be 10 digit).
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="div-space"></div>
+                <div class="div-space"></div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label class="header-font">Primary Emergency | What is your relationship with this
+                            person?</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <div> <input class="input-text" type="text" formControlName="priContRelation"></div>
+                        <div *ngIf="emergencyContactFormControl.priContRelation.invalid && (emergencyContactFormControl.priContRelation.dirty || emergencyContactFormControl.priContRelation.touched)"
+                            class="error">
+                            <ng-container *ngIf="emergencyContactFormControl.priContRelation.errors.required">
+                                Relation status is required.
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label class="header-font">Secondary Emergency | Contact Name</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <div> <label for="secContFirstName">First Name</label> </div>
+                        <div> <input class="input-text" type="text" formControlName="secContFirstName"></div>
+                        <div *ngIf="emergencyContactFormControl.secContFirstName.invalid && (emergencyContactFormControl.secContFirstName.dirty || emergencyContactFormControl.secContFirstName.touched)"
+                            class="error">
+                            <ng-container *ngIf="emergencyContactFormControl.secContFirstName.errors.required">
+                                First name is required.
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div> <label for="secContLastName">Last Name</label> </div>
+                        <div> <input class="input-text" type="text" formControlName="secContLastName"></div>
+                        <div *ngIf="emergencyContactFormControl.secContLastName.invalid && (emergencyContactFormControl.secContLastName.dirty || emergencyContactFormControl.secContLastName.touched)"
+                            class="error">
+                            <ng-container *ngIf="emergencyContactFormControl.secContLastName.errors.required">
+                                Last Name is required.
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="div-space"></div>
+                <div class="div-space"></div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label class="header-font">Secondary Emergency | Phone Number</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <div> <input class="input-text" type="text" formControlName="secContPhoneNumber"></div>
+                        <div *ngIf="emergencyContactFormControl.secContPhoneNumber.invalid && (emergencyContactFormControl.secContPhoneNumber.dirty || emergencyContactFormControl.secContPhoneNumber.touched)"
+                            class="error">
+                            <ng-container *ngIf="emergencyContactFormControl.secContPhoneNumber.errors.required">
+                                Phone number is required.
+                            </ng-container>
+                            <ng-container *ngIf="emergencyContactFormControl.secContPhoneNumber.errors.pattern">
+                                Phone number is not valid(must be 10 digit).
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="div-space"></div>
+                <div class="div-space"></div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label class="header-font">Secondary Emergency | What is your relationship with this
+                            person?</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <div> <input class="input-text" type="text" formControlName="secContRelation"></div>
+                        <div *ngIf="emergencyContactFormControl.secContRelation.invalid && (emergencyContactFormControl.secContRelation.dirty || emergencyContactFormControl.secContRelation.touched)"
+                            class="error">
+                            <ng-container *ngIf="emergencyContactFormControl.secContRelation.errors.required">
+                                Relation status is required.
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+                <div class="div-space"></div>
+                <hr>
+
+                <div class="div-space"></div>
+
+                <div>
+                    <button mat-raised-button matStepperPrevious>Back</button>
+                    <button mat-flat-button color="primary" class="float-right" mat-button
+                        (click)="submit()">Save</button>
+                </div>
+            </form>
+        </mat-step>
+    </mat-horizontal-stepper>
+
+</div>
