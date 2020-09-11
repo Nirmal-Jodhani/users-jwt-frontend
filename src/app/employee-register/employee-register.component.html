@@ -1,6 +1,8 @@
 <div class="stepper-boxshadow">
     <!-- <div class="header">Employee Information Form</div> -->
-    <mat-horizontal-stepper >
+    <mat-horizontal-stepper>
+
+        <!-- first stepper for personal information start -->
         <mat-step [stepControl]="personalInformationForm">
             <ng-template matStepLabel>Personal Information</ng-template>
             <form [formGroup]="personalInformationForm">
@@ -172,7 +174,7 @@
                             </label>
                             <div>
                                 <input id="file-upload" type="file" (change)="uploadFile($event)" multiple
-                                    formControlName="uploadFile" accept="image/*"/>
+                                    formControlName="uploadFile" accept="image/*" />
                             </div>
                         </div>
                     </div>
@@ -194,10 +196,14 @@
                 <div class="div-space"></div>
 
                 <div>
-                    <button mat-flat-button color="primary" class="float-right" matStepperNext (click)="personalDetailNext()">Next</button>
+                    <button mat-flat-button color="primary" class="float-right" matStepperNext
+                        (click)="personalDetailNext()">Next</button>
                 </div>
             </form>
         </mat-step>
+        <!-- first stepper for personal information end -->
+
+        <!-- second stepper for job information start -->
         <mat-step [stepControl]="jobInformationForm">
             <ng-template matStepLabel>Job Information</ng-template>
             <form [formGroup]="jobInformationForm">
@@ -258,7 +264,8 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div> <label for="startDate" class="header-font">Start Date</label> </div>
-                        <div> <input class="input-text" type="date" formControlName="startDate" (change)="startDate($event)"></div>
+                        <div> <input class="input-text" type="date" formControlName="startDate"
+                                (change)="startDate($event)"></div>
                         <div *ngIf="jobInformationFormControl.startDate.invalid && (jobInformationFormControl.startDate.dirty || jobInformationFormControl.startDate.touched)"
                             class="error">
                             <ng-container *ngIf="jobInformationFormControl.startDate.errors.required">
@@ -282,6 +289,9 @@
                 </div>
             </form>
         </mat-step>
+        <!-- second stepper for job information end -->
+
+        <!-- third stepper emergency contact start -->
         <mat-step [stepControl]="emergencyContactForm">
             <ng-template matStepLabel>Emergency Contact Information</ng-template>
             <form [formGroup]="emergencyContactForm">
@@ -434,6 +444,7 @@
                 </div>
             </form>
         </mat-step>
+        <!-- third stepper emergency contact end -->
     </mat-horizontal-stepper>
 
 </div>
