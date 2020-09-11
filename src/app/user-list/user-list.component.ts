@@ -1,5 +1,10 @@
+// ANGULAR 
 import { Component, OnInit } from '@angular/core';
+
+// SERVICE
 import {UserService} from '../user.service';
+
+// MODEL AND INTERFACE
 import { User } from '../models/user.model';
 
 @Component({

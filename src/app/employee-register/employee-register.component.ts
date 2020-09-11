@@ -119,6 +119,14 @@ export class EmployeeRegisterComponent implements OnInit {
     }
   }
 
+  // set validation for start date is not less then current date
+  startDate(event) {
+    let difference = (new Date().getTime() - new Date(event.target.value).getTime()) / (1000 * 3600 * 24);
+    if (difference > 1) {
+      this.jobInformationForm.get('startDate').setErrors({ startDate: true });
+    }
+  }
+
   // on submit check last form validation and api call
   submit() {
     console.log('submit', this.emergencyContactForm);
@@ -126,6 +134,13 @@ export class EmployeeRegisterComponent implements OnInit {
       this.emergencyContactForm.markAllAsTouched();
       return;
     }
+
+    // code when the stepper is not linear so we have to validate before submitting data
+    if (this.emergencyContactForm.invalid || this.personalInformationForm.invalid || this.jobInformationForm.invalid) {
+      alert('Any of stepper have error field');
+      return;
+    }
+
     console.log('forms value', this.personalInformationForm.value, this.jobInformationForm.value, this.emergencyContactForm.value);
   }
 }

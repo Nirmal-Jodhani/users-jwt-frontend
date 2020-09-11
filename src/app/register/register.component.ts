@@ -53,10 +53,12 @@ export class RegisterComponent implements OnInit {
 
   }
 
+  // return controls of register form
   get registerFormControl() {
     return this.registerForm.controls;
   }
 
+  // on submit if form is valid based on id do api call
   onSubmit() {
     if (this.registerForm.invalid) {
       this.registerForm.markAllAsTouched();

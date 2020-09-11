@@ -1,6 +1,7 @@
+// FOR ADMIN AUTHERIZATION
+
 import { Injectable } from '@angular/core';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-
 import { AuthenticationService } from '../authentication.service';
 
 @Injectable({ providedIn: 'root' })

@@ -1,6 +1,11 @@
+// ANGULAR
 import { Component } from '@angular/core';
-import { User } from './models/user.model';
+
+// SERVICE
 import { AuthenticationService } from './authentication.service';
+
+// MODE AND INTERFACE
+import { User } from './models/user.model';
 
 @Component({
   selector: 'app-root',

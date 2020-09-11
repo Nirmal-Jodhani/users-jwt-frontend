@@ -1,8 +1,10 @@
+// ANGULAR
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+
+// SERVICE
 import { AuthenticationService } from '../authentication.service';
-import { User } from '../models/user.model';
 
 @Component({
   selector: 'app-login',
@@ -40,6 +42,7 @@ export class LoginComponent implements OnInit {
     return this.loginForm.controls;
   }
 
+  // on submit do api call if form is valid
   onSubmit() {
     if (this.loginForm.invalid) {
       return;

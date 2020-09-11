@@ -1,11 +1,17 @@
+// ANGULAR
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
+// COMPONENTES
 import { UserListComponent } from './user-list/user-list.component';
 import { LoginComponent } from './login/login.component';
-import { AuthGuard } from './shared/auth.guard';
-import { AdminGuard } from './shared/admin.guard';
 import { RegisterComponent } from './register/register.component';
 import { EmployeeRegisterComponent } from './employee-register/employee-register.component';
+
+// GUARDS FOR AUTHENTICATION AND AUTHRIZATION
+import { AuthGuard } from './shared/auth.guard';
+import { AdminGuard } from './shared/admin.guard';
+
 
 const routes: Routes = [
   { path: 'users', component: UserListComponent, canActivate: [AdminGuard] },

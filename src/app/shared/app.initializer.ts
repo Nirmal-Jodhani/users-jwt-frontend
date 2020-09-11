@@ -1,3 +1,5 @@
+// IF USER DONT LOGOUT LAST TIME THEN USING COOKIE REFRESH THE TOKEN
+
 import { AuthenticationService } from '../authentication.service';
 
 export function appInitializer(authenticationService: AuthenticationService) {

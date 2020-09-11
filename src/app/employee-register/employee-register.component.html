@@ -1,6 +1,6 @@
 <div class="stepper-boxshadow">
     <!-- <div class="header">Employee Information Form</div> -->
-    <mat-horizontal-stepper linear>
+    <mat-horizontal-stepper >
         <mat-step [stepControl]="personalInformationForm">
             <ng-template matStepLabel>Personal Information</ng-template>
             <form [formGroup]="personalInformationForm">
@@ -33,7 +33,7 @@
                 <div class="div-space"></div>
 
                 <div class="row">
-                    <div class="col-sm-12"><label class="header-font">Addres</label></div>
+                    <div class="col-sm-12"><label class="header-font">Address</label></div>
                     <div class="col-sm-12">
                         <div> <label for="streetAddressline1">Street Address</label> </div>
                         <div> <input class="input-text" type="text" formControlName="streetAddressline1"></div>
@@ -172,7 +172,7 @@
                             </label>
                             <div>
                                 <input id="file-upload" type="file" (change)="uploadFile($event)" multiple
-                                    formControlName="uploadFile" />
+                                    formControlName="uploadFile" accept="image/*"/>
                             </div>
                         </div>
                     </div>
@@ -194,7 +194,7 @@
                 <div class="div-space"></div>
 
                 <div>
-                    <button mat-flat-button color="primary" matStepperNext (click)="personalDetailNext()">Next</button>
+                    <button mat-flat-button color="primary" class="float-right" matStepperNext (click)="personalDetailNext()">Next</button>
                 </div>
             </form>
         </mat-step>
@@ -258,11 +258,15 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div> <label for="startDate" class="header-font">Start Date</label> </div>
-                        <div> <input class="input-text" type="date" formControlName="startDate"></div>
+                        <div> <input class="input-text" type="date" formControlName="startDate" (change)="startDate($event)"></div>
                         <div *ngIf="jobInformationFormControl.startDate.invalid && (jobInformationFormControl.startDate.dirty || jobInformationFormControl.startDate.touched)"
                             class="error">
                             <ng-container *ngIf="jobInformationFormControl.startDate.errors.required">
                                 Start Date is required.
+                            </ng-container>
+
+                            <ng-container *ngIf="jobInformationFormControl.startDate.errors.startDate">
+                                Start Date is not less then current date.
                             </ng-container>
                         </div>
                     </div>
